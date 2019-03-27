@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/tvlk-data-cdp-dev/sample-app
+        image: gcr.io/tvlk-data-cdp-dev/sample-app:{{ .Values.app.version }}
         resources:
           limits:
             memory: "500Mi"
@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/tvlk-data-cdp-dev/sample-app
+        image: gcr.io/tvlk-data-cdp-dev/sample-app:{{ .Values.app.version }}
         resources:
           limits:
             memory: "500Mi"
@@ -87,7 +87,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/tvlk-data-cdp-dev/sample-app
+        image: gcr.io/tvlk-data-cdp-dev/sample-app:{{ .Values.app.version }}
         resources:
           limits:
             memory: "500Mi"
@@ -125,7 +125,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/tvlk-data-cdp-dev/sample-app
+        image: gcr.io/tvlk-data-cdp-dev/sample-app:{{ .Values.app.version }}
         resources:
           limits:
             memory: "500Mi"
