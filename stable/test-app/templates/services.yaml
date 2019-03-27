@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-backend-canary
+  name: sample-backend-canary
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample
+    role: backend
+    env: canary
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-backend-production
+  name: sample-backend-production
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample
+    role: backend
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-frontend-canary
+  name: sample-frontend-canary
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - name: 80-80
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample
+    role: frontend
+    env: canary
+  sessionAffinity: None
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-frontend-production
+  name: sample-frontend-production
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample
+    role: frontend
+  sessionAffinity: None
+  type: LoadBalancer
