@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   test-app:
   - apiVersion: v1
-    created: 2019-03-27T09:01:47.6446211+07:00
+    created: 2019-03-27T09:20:52.364249918+07:00
     description: just for testing
-    digest: 5e14ef505309dfa35dcf54cc5a04408436bab5b742345bdbf247310489502e74
+    digest: bfecdd4446ed12750b806055389b4b3ba2a0c40a50e74129025e290f1ed5e37d
     engine: gotpl
     home: https://github.com/imrenagi/chart-repo/stable/test-app/
     maintainers:
@@ -14,4 +14,4 @@ entries:
     urls:
     - test-app-0.1.0.tgz
     version: 0.1.0
-generated: 2019-03-27T09:01:47.641468788+07:00
+generated: 2019-03-27T09:20:52.363751268+07:00
